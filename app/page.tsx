@@ -1,103 +1,119 @@
+"use client"
+
 import Image from "next/image";
+import { useState, useCallback } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [showVideo, setShowVideo] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+  const closeVideo = useCallback(() => {
+    setShowVideo(false);
+  }, []);
+
+  return (
+    <div className="h-screen bg-gradient-to-br from-white via-[#EEF1FF] to-[#E8F3FF] flex flex-col overflow-hidden relative">
+      {/* Background Accent */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-[#013DC4]/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-[#013DC4]/5 rounded-full blur-3xl" />
+      </div>
+
+      {/* Video Modal */}
+      {showVideo && (
+        <dialog className="modal modal-open">
+          <div className="modal-box relative w-11/12 max-w-5xl h-[80vh] p-0 bg-black">
+            <button 
+              className="btn btn-sm btn-circle absolute right-2 top-2 z-10 bg-white/10 border-none hover:bg-white/20"
+              onClick={closeVideo}
+            >✕</button>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/nj55IKTpPaQ?autoplay=1"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+          <div className="modal-backdrop" onClick={closeVideo}>
+            <button className="cursor-default">Close</button>
+          </div>
+        </dialog>
+      )}
+
+      {/* Navigation */}
+      <nav className="relative flex items-center justify-between px-8 py-4 max-w-7xl mx-auto w-full">
+        <div className="flex items-center gap-3">
+          <div className="bg-gradient-to-br from-[#013DC4] to-[#0129A3] rounded-xl p-1.5">
+            <Image
+              src="/logo.svg"
+              alt="DeepSeek Toolbox Logo"
+              width={32}
+              height={32}
+              className="rounded-lg"
+            />
+          </div>
+          <span className="text-xl font-bold text-gray-800">DeepSeek Toolbox</span>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <main className="relative flex-1 flex flex-col justify-center max-w-7xl mx-auto px-8 text-center">
+        <h1 className="text-6xl font-bold text-gray-800 mb-4">
+          DeepSeek Toolbox
+        </h1>
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Enhance your DeepSeek experience with a suite of tools.
+        </p>
+        
+        <div className="flex flex-col items-center gap-6 mb-10">
+          {/* Video Preview Button */}
+          <button 
+            onClick={() => setShowVideo(true)}
+            className="group cursor-pointer inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#013DC4]/20 to-transparent rounded-full hover:from-[#013DC4]/30 transition-all duration-300"
+          >
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#013DC4] to-[#0129A3] flex items-center justify-center group-hover:scale-110 transition-transform">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24" 
+                fill="white"
+                className="w-5 h-5 relative left-0.5"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+            <span className="text-gray-600 group-hover:text-gray-800 transition-colors">One-Click Thought Content Copying</span>
+          </button>
+        </div>
+
+        {/* Browser Extensions */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            className="flex items-center bg-white gap-2 px-5 py-3 rounded-lg hover:opacity-90 transition-opacity text-sm shadow-lg w-full md:w-auto justify-center"
           >
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/chrome.svg"
+              alt="Chrome"
+              width={24}
+              height={24}
             />
-            Deploy now
+            <span>Chrome Extension</span>
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            className="flex items-center gap-2 bg-white/60 border border-gray-200 text-gray-700 px-5 py-3 rounded-lg hover:bg-white/80 transition-colors text-sm shadow-md w-full md:w-auto justify-center"
           >
-            Read our docs
+            <Image
+              src="/firefox.svg"
+              alt="Firefox"
+              width={24}
+              height={24}
+            />
+            <span>Firefox Add-on</span>
           </a>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
