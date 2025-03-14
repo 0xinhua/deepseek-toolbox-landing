@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy - DeepSeek Toolbox',
@@ -100,7 +101,7 @@ const PrivacyPolicy = () => {
     <>
       {/* Navigation */}
       <nav className="relative flex items-center justify-between px-8 py-4 max-w-7xl mx-auto w-full">
-        <a href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <div className="bg-gradient-to-br from-[#013DC4] to-[#0129A3] rounded-xl p-1.5">
             <Image
               src="/logo.svg"
@@ -111,7 +112,7 @@ const PrivacyPolicy = () => {
             />
           </div>
           <span className="text-xl font-bold text-gray-800">DeepSeek Toolbox</span>
-        </a>
+        </Link>
       </nav>
 
       {/* Content */}
