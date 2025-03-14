@@ -25,11 +25,10 @@ export default function PrivacyLayout({
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-[#EEF1FF] to-[#E8F3FF]">
       {/* Background Accent */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0">
         <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-[#013DC4]/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-[#013DC4]/5 rounded-full blur-3xl" />
       </div>
-      
       <main className="relative">
         {children}
       </main>
