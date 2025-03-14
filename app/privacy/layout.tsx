@@ -23,8 +23,16 @@ export default function PrivacyLayout({
   children: React.ReactNode
 }) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      {children}
-    </main>
+    <div className="min-h-screen bg-gradient-to-br from-white via-[#EEF1FF] to-[#E8F3FF]">
+      {/* Background Accent */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-[#013DC4]/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-[#013DC4]/5 rounded-full blur-3xl" />
+      </div>
+      
+      <main className="relative">
+        {children}
+      </main>
+    </div>
   )
 }

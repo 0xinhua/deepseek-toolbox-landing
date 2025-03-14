@@ -37,7 +37,8 @@ const privacyContentHTML = `
 <li>Basic browser information necessary for extension functionality</li>
 <li>Extension interaction data with DeepSeek platform</li>
 <li>User preferences and settings of the extension</li>
-<li>In the future, we may introduce an account system that collects basic user information (avatar, username, email) through Google/login credentials. We do not collect any AI platform usage data, including conversations, user data, or copied/pasted content.</li>
+<li>In the future, we may introduce an account system that collects basic user information (avatar, username, email) through Google/login credentials.</li>
+<li>We do not collect any AI platform usage data, including conversations, user data, or copied/pasted content.</li>
 </ol>
 <h3 id="usagedata">Usage Data</h3>
 <p>The usage data we may collect includes:</p>
@@ -96,17 +97,11 @@ const privacyContentHTML = `
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen">
-      {/* Background Accent */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-[#013DC4]/10 rounded-full blur-3xl" />
-        <div className="absolute w-full h-full bg-[#013DC4]/5 rounded-full blur-3xl" />
-      </div>
-
+    <>
       {/* Navigation */}
       <nav className="relative flex items-center justify-between px-8 py-4 max-w-7xl mx-auto w-full">
         <a href="/" className="flex items-center gap-3">
-          <div className="p-1.5">
+          <div className="bg-gradient-to-br from-[#013DC4] to-[#0129A3] rounded-xl p-1.5">
             <Image
               src="/logo.svg"
               alt="DeepSeek Toolbox Logo"
@@ -115,24 +110,24 @@ const PrivacyPolicy = () => {
               className="rounded-lg"
             />
           </div>
-          <span className="text-xl font-bold text-gray-800">DeepSeek Toolbox Privacy Policy</span>
+          <span className="text-xl font-bold text-gray-800">DeepSeek Toolbox</span>
         </a>
       </nav>
 
       {/* Content */}
-      <main className="relative">
-        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-          <article className="prose prose-slate prose-lg mx-auto">
+      <div className="container mx-auto max-w-4xl px-4 py-12">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm">
+          <div className="prose prose-slate prose-lg prose-headings:text-gray-900 prose-p:text-gray-600 prose-strong:text-gray-900 prose-a:text-[#013DC4] hover:prose-a:text-[#0129A3] max-w-none prose-headings:mb-6 prose-p:mb-4 prose-ul:mb-4 prose-ol:mb-4 prose-li:mb-2 prose-h2:mt-8">
             <div 
-              className="markdown-content flex flex-col gap-4"
+              className='markdown-content flex flex-col gap-4'
               dangerouslySetInnerHTML={{
                 __html: privacyContentHTML
               }}
             />
-          </article>
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </>
   )
 }
 
