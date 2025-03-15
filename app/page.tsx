@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useState, useCallback } from "react";
+import Link from "next/link";
+import { motion } from "motion/react";
 
 export default function Home() {
   const [showVideo, setShowVideo] = useState(false);
@@ -44,7 +46,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="relative flex items-center justify-between px-8 py-4 max-w-7xl mx-auto w-full">
         <div className="flex items-center gap-3">
-          <div className="bg-gradient-to-br from-[#013DC4] to-[#0129A3] rounded-xl p-1.5">
+          <div className="bg-gradient-to-br bg-[#013DC4] rounded-xl p-1">
             <Image
               src="/logo.svg"
               alt="DeepSeek Toolbox Logo"
@@ -54,6 +56,14 @@ export default function Home() {
             />
           </div>
           <span className="text-xl font-bold text-gray-800">DeepSeek Toolbox</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <Link 
+            href="/privacy" 
+            className="text-gray-700 hover:text-gray-900 transition-colors text-sm"
+          >
+            Privacy Policy
+          </Link>
         </div>
       </nav>
 
@@ -88,30 +98,53 @@ export default function Home() {
 
         {/* Browser Extensions */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-          <a
+          <motion.a
             href="#"
-            className="flex items-center bg-white gap-2 px-5 py-3 rounded-lg hover:opacity-90 transition-opacity text-sm shadow-lg w-full md:w-auto justify-center"
+            className="flex items-center bg-white gap-2 px-5 py-3 rounded-lg text-sm shadow-lg w-full md:w-auto justify-center"
+            whileHover={{ 
+              scale: 1.02,
+              boxShadow: "0 10px 25px -5px rgba(1, 61, 196, 0.1), 0 8px 10px -6px rgba(1, 61, 196, 0.1)"
+            }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <Image
-              src="/chrome.svg"
-              alt="Chrome"
-              width={24}
-              height={24}
-            />
+            <motion.div
+              whileHover={{ rotate: 15 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Image
+                src="/chrome.svg"
+                alt="Chrome"
+                width={24}
+                height={24}
+              />
+            </motion.div>
             <span>Chrome Extension</span>
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href="#"
-            className="flex items-center gap-2 bg-white/60 border border-gray-200 text-gray-700 px-5 py-3 rounded-lg hover:bg-white/80 transition-colors text-sm shadow-md w-full md:w-auto justify-center"
+            className="flex items-center gap-2 bg-white/60 text-gray-700 px-5 py-3 rounded-lg text-sm shadow-md w-full md:w-auto justify-center"
+            whileHover={{ 
+              scale: 1.02,
+              backgroundColor: "rgba(255, 255, 255, 0.9)",
+              boxShadow: "0 10px 25px -5px rgba(1, 61, 196, 0.1), 0 8px 10px -6px rgba(1, 61, 196, 0.1)"
+            }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <Image
-              src="/firefox.svg"
-              alt="Firefox"
-              width={24}
-              height={24}
-            />
+            <motion.div
+              whileHover={{ rotate: -15 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Image
+                src="/firefox.svg"
+                alt="Firefox"
+                width={24}
+                height={24}
+              />
+            </motion.div>
             <span>Firefox Add-on</span>
-          </a>
+          </motion.a>
         </div>
       </main>
     </div>

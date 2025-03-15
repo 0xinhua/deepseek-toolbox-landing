@@ -102,7 +102,7 @@ const PrivacyPolicy = () => {
       {/* Navigation */}
       <nav className="relative flex items-center justify-between px-8 py-4 max-w-7xl mx-auto w-full">
         <Link href="/" className="flex items-center gap-3">
-          <div className="bg-gradient-to-br from-[#013DC4] to-[#0129A3] rounded-xl p-1.5">
+          <div className="bg-gradient-to-br bg-[#013DC4] rounded-xl p-1">
             <Image
               src="/logo.svg"
               alt="DeepSeek Toolbox Logo"
