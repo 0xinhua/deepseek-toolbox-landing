@@ -127,10 +127,10 @@ export default function Home() {
                 height={24}
               />
             </motion.div>
-            <span>Chrome Extension</span>
+            <span>Chrome Extension(Reviewing)</span>
           </motion.a>
           <motion.a
-            href="#"
+            href="https://addons.mozilla.org/en-US/firefox/addon/deepseek-toolbox"
             className="flex items-center gap-2 bg-white/60 text-gray-700 px-5 py-3 rounded-lg text-sm shadow-md w-full md:w-auto justify-center"
             whileHover={{ 
               scale: 1.02,
