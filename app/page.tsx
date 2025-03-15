@@ -4,6 +4,14 @@ import Image from "next/image";
 import { useState, useCallback } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { Poppins } from "next/font/google";
+import { cn } from "./utils";
+
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function Home() {
   const [showVideo, setShowVideo] = useState(false);
@@ -13,7 +21,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-screen bg-gradient-to-br from-white via-[#EEF1FF] to-[#E8F3FF] flex flex-col overflow-hidden relative">
+    <div className={cn(`h-screen bg-gradient-to-br from-white via-[#EEF1FF] to-[#E8F3FF] flex flex-col overflow-hidden relative`, poppins.className)}>
       {/* Background Accent */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-[#013DC4]/10 rounded-full blur-3xl" />
@@ -147,6 +155,13 @@ export default function Home() {
           </motion.a>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="relative py-6 text-center text-sm text-gray-500">
+        <div className="max-w-7xl mx-auto px-8">
+          <p>© {new Date().getFullYear()} DeepSeek Toolbox. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }
