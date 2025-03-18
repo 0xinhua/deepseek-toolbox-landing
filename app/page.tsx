@@ -74,16 +74,14 @@ export default function Home() {
           </Link>
         </div>
       </nav>
-
       {/* Hero Section */}
       <main className="relative flex-1 flex flex-col justify-center max-w-7xl mx-auto px-8 text-center">
-        <h1 className="text-6xl font-bold text-gray-800 mb-4">
-          DeepSeek Toolbox
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+         Supercharge Your DeepSeek Efficiency
         </h1>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Enhance your DeepSeek experience with a suite of tools.
+          ⚡️ Enhance your DeepSeek experience with a suite of tools.
         </p>
-        
         <div className="flex flex-col items-center gap-6 mb-10">
           {/* Video Preview Button */}
           <button 
