@@ -86,7 +86,7 @@ export default function Home() {
           {/* Video Preview Button */}
           <button 
             onClick={() => setShowVideo(true)}
-            className="group cursor-pointer inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#013DC4]/20 to-transparent rounded-full hover:from-[#013DC4]/30 transition-all duration-300"
+            className="group cursor-pointer inline-flex items-center gap-3 px-3 py-3 bg-gradient-to-r from-[#013DC4]/20 to-transparent rounded-full hover:from-[#013DC4]/30 transition-all duration-300"
           >
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#013DC4] to-[#0129A3] flex items-center justify-center group-hover:scale-110 transition-transform">
               <svg 
