@@ -81,63 +81,74 @@ export default function Home() {
         </div>
       </nav>
       {/* Hero Section */}
-      <main className="relative flex-1 flex flex-col justify-center max-w-7xl mx-auto px-8 text-center">
+      <main className="relative flex-1 flex flex-col justify-center max-w-7xl mx-auto px-8 text-center mt-10">
         <h1 className="text-4xl font-bold text-gray-800 mb-4 mt-4">
          Supercharge Your DeepSeek Efficiency
         </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p className="text-[22px] text-gray-600 mb-8 max-w-2xl mx-auto">
           ⚡️ Enhance your DeepSeek experience with a suite of tools.
         </p>
 
         {/* Browser Extensions */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-14 mt-4">
-          <motion.a
-            href="#"
-            className="flex items-center bg-white gap-2 px-5 py-3 rounded-lg text-sm shadow-lg w-full md:w-auto justify-center"
-            whileHover={{ 
-              scale: 1.02,
-              boxShadow: "0 10px 25px -5px rgba(1, 61, 196, 0.1), 0 8px 10px -6px rgba(1, 61, 196, 0.1)"
-            }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          >
-            <motion.div
-              whileHover={{ rotate: 15 }}
+        <div className="flex flex-col mb-14 mt-4">
+          {/* Mobile CTA */}
+          <div className="flex justify-center mb-4">
+            <div className="flex flex-col items-center">
+              <div className="text-[#013DC4] font-semibold animate-pulse mb-1">Available on the Web Store and Add-on – Try It Now!</div>
+            </div>
+          </div>
+          
+          {/* Browser buttons container */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+            {/* Desktop CTA Arrow pointing to Chrome extension */}
+            <motion.a
+              href="https://chromewebstore.google.com/detail/deepseek-toolbox/eiccidaafienjjnpljcagalaoidhcdma"
+              className="flex items-center bg-white gap-2 px-5 py-3 rounded-lg text-sm shadow-lg w-full md:w-auto justify-center"
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: "0 10px 25px -5px rgba(1, 61, 196, 0.1), 0 8px 10px -6px rgba(1, 61, 196, 0.1)"
+              }}
+              whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <Image
-                src="/chrome.svg"
-                alt="Chrome"
-                width={24}
-                height={24}
-              />
-            </motion.div>
-            <span>Chrome Extension(Reviewing)</span>
-          </motion.a>
-          <motion.a
-            href="https://addons.mozilla.org/en-US/firefox/addon/deepseek-toolbox"
-            className="flex items-center gap-2 bg-white/60 text-gray-700 px-5 py-3 rounded-lg text-sm shadow-md w-full md:w-auto justify-center"
-            whileHover={{ 
-              scale: 1.02,
-              backgroundColor: "rgba(255, 255, 255, 0.9)",
-              boxShadow: "0 10px 25px -5px rgba(1, 61, 196, 0.1), 0 8px 10px -6px rgba(1, 61, 196, 0.1)"
-            }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          >
-            <motion.div
-              whileHover={{ rotate: -15 }}
+              <motion.div
+                whileHover={{ rotate: 15 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <Image
+                  src="/chrome.svg"
+                  alt="Chrome"
+                  width={24}
+                  height={24}
+                />
+              </motion.div>
+              <span className="font-semibold">Chrome Extension</span>
+            </motion.a>
+            <motion.a
+              href="https://addons.mozilla.org/en-US/firefox/addon/deepseek-toolbox"
+              className="flex items-center gap-2 bg-white/60 text-gray-700 px-5 py-3 rounded-lg text-sm shadow-md w-full md:w-auto justify-center"
+              whileHover={{ 
+                scale: 1.02,
+                backgroundColor: "rgba(255, 255, 255, 0.9)",
+                boxShadow: "0 10px 25px -5px rgba(1, 61, 196, 0.1), 0 8px 10px -6px rgba(1, 61, 196, 0.1)"
+              }}
+              whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <Image
-                src="/firefox.svg"
-                alt="Firefox"
-                width={24}
-                height={24}
-              />
-            </motion.div>
-            <span>Firefox Add-on</span>
-          </motion.a>
+              <motion.div
+                whileHover={{ rotate: -15 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <Image
+                  src="/firefox.svg"
+                  alt="Firefox"
+                  width={24}
+                  height={24}
+                />
+              </motion.div>
+              <span className="font-semibold">Firefox Add-on</span>
+            </motion.a>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4 max-w-4xl mx-auto w-full">
