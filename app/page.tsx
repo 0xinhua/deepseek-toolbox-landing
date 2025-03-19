@@ -21,7 +21,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={cn(`h-screen bg-gradient-to-br from-white via-[#EEF1FF] to-[#E8F3FF] flex flex-col overflow-hidden relative`, poppins.className)}>
+    <div className={cn(`h-screen bg-gradient-to-br from-white via-[#EEF1FF] to-[#E8F3FF] flex flex-col relative`, poppins.className)}>
       {/* Background Accent */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-[#013DC4]/10 rounded-full blur-3xl" />
@@ -52,7 +52,7 @@ export default function Home() {
       )}
 
       {/* Navigation */}
-      <nav className="relative flex items-center justify-between px-8 py-4 max-w-7xl mx-auto w-full">
+      <nav className="relative flex items-center justify-between sm:px-8 px-4 py-4 max-w-7xl mx-auto w-full">
         <div className="flex items-center gap-3">
           <div className="bg-gradient-to-br bg-[#013DC4] rounded-xl p-1">
             <Image
@@ -66,44 +66,31 @@ export default function Home() {
           <span className="text-xl font-bold text-gray-800">DeepSeek Toolbox</span>
         </div>
         <div className="flex items-center gap-4">
-          <Link 
+          <Link
             href="/privacy" 
-            className="text-gray-700 hover:text-gray-900 transition-colors text-sm"
+            className="text-gray-700 sm:block hidden hover:text-gray-900 transition-colors text-sm"
           >
             Privacy Policy
+          </Link>
+          <Link
+            href="/privacy" 
+            className="text-gray-700 sm:hidden block hover:text-gray-900 transition-colors text-sm"
+          >
+            Privacy
           </Link>
         </div>
       </nav>
       {/* Hero Section */}
       <main className="relative flex-1 flex flex-col justify-center max-w-7xl mx-auto px-8 text-center">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+        <h1 className="text-4xl font-bold text-gray-800 mb-4 mt-4">
          Supercharge Your DeepSeek Efficiency
         </h1>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
           ⚡️ Enhance your DeepSeek experience with a suite of tools.
         </p>
-        <div className="flex flex-col items-center gap-6 mb-10">
-          {/* Video Preview Button */}
-          <button 
-            onClick={() => setShowVideo(true)}
-            className="group cursor-pointer inline-flex items-center gap-3 px-3 py-3 bg-gradient-to-r from-[#013DC4]/20 to-transparent rounded-full hover:from-[#013DC4]/30 transition-all duration-300"
-          >
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#013DC4] to-[#0129A3] flex items-center justify-center group-hover:scale-110 transition-transform">
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                viewBox="0 0 24 24" 
-                fill="white"
-                className="w-5 h-5 relative left-0.5"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-            <span className="text-gray-600 group-hover:text-gray-800 transition-colors">One-Click Thought Content Copying</span>
-          </button>
-        </div>
 
         {/* Browser Extensions */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-14 mt-4">
           <motion.a
             href="#"
             className="flex items-center bg-white gap-2 px-5 py-3 rounded-lg text-sm shadow-lg w-full md:w-auto justify-center"
@@ -151,6 +138,54 @@ export default function Home() {
             </motion.div>
             <span>Firefox Add-on</span>
           </motion.a>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4 max-w-4xl mx-auto w-full">
+          {/* Feature Card 1: Image on top, text on bottom */}
+          <motion.div 
+            className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+            whileHover={{ y: -5 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            {/* Image Section */}
+            <div className="h-42 bg-gradient-to-br from-[#013DC4] to-[#0129A3] relative">
+              <Image
+                src="/feature-copy.png"
+                alt="One-Click Thought Copying Feature"
+                fill
+                className="object-cover"
+              />
+            </div>
+            
+            {/* Text Section */}
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">One-Click Thought Copying</h3>
+              <p className="text-gray-600">Easily copy DeepSeek's thought content with a single click, boosting your productivity.</p>
+            </div>
+          </motion.div>
+          
+          {/* Feature Card 2: Text on top, image on bottom */}
+          <motion.div 
+            className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+            whileHover={{ y: -5 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            {/* Text Section */}
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">Auto-Fold Thought Content</h3>
+              <p className="text-gray-600">Smart folding of thought content for a cleaner chat interface.</p>
+            </div>
+            
+            {/* Image Section */}
+            <div className="h-42 bg-gradient-to-br from-[#013DC4]/90 to-[#0129A3] relative">
+              <Image
+                src="/feature-fold.png"
+                alt="Auto-Fold Thought Content Feature"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
         </div>
       </main>
 
