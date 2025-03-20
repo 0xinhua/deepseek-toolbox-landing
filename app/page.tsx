@@ -159,7 +159,7 @@ export default function Home() {
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
             {/* Image Section */}
-            <div className="h-42 bg-gradient-to-br from-[#013DC4] to-[#0129A3] relative">
+            <div className="h-42 bg-[#dbeafe] relative">
               <Image
                 src="/feature-copy.png"
                 alt="One-Click Thought Copying Feature"
@@ -188,7 +188,7 @@ export default function Home() {
             </div>
             
             {/* Image Section */}
-            <div className="h-42 bg-gradient-to-br from-[#013DC4]/90 to-[#0129A3] relative">
+            <div className="h-42 bg-[#dbeafe] relative">
               <Image
                 src="/feature-fold.png"
                 alt="Auto-Fold Thought Content Feature"
