@@ -18,12 +18,8 @@ export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'zh' }];
 }
 
-export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
-
-  const { locale } = await params;
-
-  setRequestLocale(locale);
-
+// Client Component for rendering
+function HomeContent({ locale }: { locale: string }) {
   const t = useTranslations('HomePage');
 
   return (
@@ -33,8 +29,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-[#013DC4]/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-[#013DC4]/5 rounded-full blur-3xl" />
       </div>
-
-      {/* Video Modal */}
 
       {/* Navigation */}
       <nav className="relative flex items-center justify-between sm:px-8 px-4 py-4 max-w-7xl mx-auto w-full">
@@ -63,9 +57,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           >
             {t('privacy')}
           </Link>
-          <LanguageSwitcher currentLocale={params.locale} />
+          <LanguageSwitcher currentLocale={locale} />
         </div>
       </nav>
+
       {/* Hero Section */}
       <main className="relative flex-1 flex flex-col justify-center max-w-7xl mx-auto px-8 text-center mt-10">
         <h1 className="text-4xl font-bold text-gray-800 mb-4 mt-4">
@@ -100,4 +95,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </footer>
     </div>
   );
+}
+
+// Server Component for data fetching
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  
+  return <HomeContent locale={locale} />;
 }
