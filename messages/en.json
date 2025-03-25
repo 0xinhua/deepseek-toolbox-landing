@@ -1,0 +1,18 @@
+{
+  "HomePage": {
+    "name": "DeepSeek Toolbox",
+    "title": "Supercharge Your DeepSeek Efficiency",
+    "intro": "⚡️ Enhance your DeepSeek experience with a suite of tools.",
+    "about": "About",
+    "available": "Available on the Web Store and Add-on – Try It Now!",
+    "chromeExt": "Chrome Extension",
+    "firefoxExt": "Firefox Add-on",
+    "feature1Title": "One-Click Thought Copying",
+    "feature1Desc": "Easily copy DeepSeek's thought content with a single click, boosting your productivity.",
+    "feature2Title": "Auto-Fold Thought Content",
+    "feature2Desc": "Smart folding of thought content for a cleaner chat interface.",
+    "privacyPolicy": "Privacy Policy",
+    "privacy": "Privacy",
+    "copyright": "© {year} DeepSeek Toolbox. All rights reserved."
+  }
+} 

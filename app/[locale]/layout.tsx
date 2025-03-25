@@ -1,7 +1,16 @@
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { notFound } from 'next/navigation';
+import { routing } from '../i18n/routing';
+import { setRequestLocale } from 'next-intl/server';
+
+export function generateStaticParams() {
+  return routing.locales.map((locale: string) => ({ locale }));
+}
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
-import "./globals.css";
+import "./../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DeepSeek Toolbox - Enhance Your AI Experience",
+    title: "DeepSeek Toolbox - Enhance Your DeepSeek Experience",
     description: "Powerful browser extensions for seamless interaction with DeepSeek AI",
     images: ['/og.png'],
   },
@@ -48,13 +57,23 @@ export const metadata: Metadata = {
   themeColor: "#013DC4",
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params
+}: {
   children: React.ReactNode;
-}>) {
+  params: { locale: string };
+}) {
+  // 验证传入的 `locale` 是否有效
+  const { locale } = params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  // 启用静态渲染
+  setRequestLocale(locale);
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         {/* Google Analytics */}
         <Script
@@ -73,7 +92,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <NextIntlClientProvider>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

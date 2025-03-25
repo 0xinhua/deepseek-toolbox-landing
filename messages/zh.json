@@ -1,0 +1,18 @@
+{
+  "HomePage": {
+    "name": "DeepSeek 百宝箱",
+    "title": "提升你的 DeepSeek 效率",
+    "intro": "⚡️ 使用一系列工具提升你的 DeepSeek 体验。",
+    "about": "关于",
+    "available": "可在 Web Store 和 Add-on 使用 – 立即体验！",
+    "chromeExt": "Chrome 扩展",
+    "firefoxExt": "火狐 插件",
+    "feature1Title": "一键复制思考内容",
+    "feature1Desc": "轻松一键复制 DeepSeek 的思考内容，提高您的工作效率。",
+    "feature2Title": "自动折叠思考内容",
+    "feature2Desc": "智能折叠思考内容，打造更整洁的聊天界面。",
+    "privacyPolicy": "隐私政策",
+    "privacy": "隐私",
+    "copyright": "© {year} DeepSeek Toolbox 保留所有权利。"
+  }
+} 
