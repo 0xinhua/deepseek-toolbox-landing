@@ -18,9 +18,11 @@ export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'zh' }];
 }
 
-export default function HomePage({ params }: { params: { locale: string } }) {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
 
-  setRequestLocale(params.locale);
+  const { locale } = await params;
+
+  setRequestLocale(locale);
 
   const t = useTranslations('HomePage');
 
